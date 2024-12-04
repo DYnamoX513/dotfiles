@@ -1,0 +1,36 @@
+gui:
+  nerdFontsVersion: "3"
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      # - "🌑"
+      # - "🌒"
+      # - "🌓"
+      # - "🌔"
+      # - "🌕"
+      # - "🌖"
+      # - "🌗"
+      # - "🌘"
+      - "'"
+      - '°'
+      - 'º'
+      - '¤'
+      - 'ø'
+      - ','
+      - '¸'
+      - '¸'
+      - ','
+      - 'ø'
+      - '¤'
+      - 'º'
+      - '°'
+      - "'"
+  theme:
+    selectedLineBgColor:
+      - underline
+  authorColors:
+    'Yuxin Duan': '#30A0A0' # Me
+
+# git:
+#   parseEmoji: true
+confirmOnQuit: true
