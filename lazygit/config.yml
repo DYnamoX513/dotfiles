@@ -27,7 +27,7 @@ gui:
       - "'"
   theme:
     selectedLineBgColor:
-      - underline
+      - reverse
   authorColors:
     'Yuxin Duan': '#30A0A0' # Me
 

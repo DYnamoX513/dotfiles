@@ -45,8 +45,6 @@ config.window_padding = {
 config.initial_cols = 120
 config.initial_rows = 30
 
-config.use_fancy_tab_bar = false
-
 -- CTRL + SHIFT + <SPACE> conflict with MacOS's 'Select the previous input source'
 config.keys = {
 	{ key = "s", mods = "SHIFT|CTRL", action = wezterm.action.QuickSelect },
@@ -59,26 +57,52 @@ config.colors = {
 	scrollbar_thumb = "#a0a0a0",
 }
 
--- local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
--- tabline.setup({
--- 	options = {
--- 		theme = config.color_scheme,
--- 		-- section_separators = "",
--- 		-- component_separators = "",
--- 		tab_separators = {
--- 			left = "",
--- 			right = "",
--- 		},
--- 	},
--- 	sections = {
--- 		-- tab_active = {
--- 		-- 	"index",
--- 		-- 	{ "cwd", max_length = 80, padding = { left = 0, right = 1 } },
--- 		-- 	{ "zoomed", padding = 0 },
--- 		-- },
--- 	},
--- })
+config.use_fancy_tab_bar = false
+config.tab_max_width = 32
+-- Darwin ~/Library/Application Support/wezterm/plugins
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+-- Need manually update (git pull)
+tabline.setup({
+	options = {
+		theme = config.color_scheme,
+		-- section_separators = "",
+		-- component_separators = "",
+		-- tab_separators = {
+		-- 	left = "",
+		-- 	right = "",
+		-- },
+		section_separators = {
+			left = wezterm.nerdfonts.ple_right_half_circle_thick,
+			right = wezterm.nerdfonts.ple_left_half_circle_thick,
+		},
+		component_separators = {
+			-- left = wezterm.nerdfonts.ple_right_half_circle_thin,
+			-- right = wezterm.nerdfonts.ple_left_half_circle_thin,
+			left = "|",
+			right = "|",
+		},
+		tab_separators = {
+			left = wezterm.nerdfonts.ple_right_half_circle_thick,
+			right = wezterm.nerdfonts.ple_left_half_circle_thick,
+		},
+	},
+	sections = {
+		-- tab_active = {
+		-- 	"index",
+		-- 	{ "cwd", max_length = 10, padding = { left = 0, right = 1 } },
+		-- 	{ "zoomed", padding = 0 },
+		-- },
+		tabline_y = {
+			"datetime",
+			--[[ "battery" ]]
+		},
+		tabline_z = {
+			--[[ "hostname" ]]
+		},
+	},
+})
 
+-- Below configures T-SSH domains
 local function parse_ssh_config()
 	local host_list = {}
 	local config_path = os.getenv("HOME") .. "/.ssh/config"

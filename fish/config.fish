@@ -1,3 +1,19 @@
+if status --is-login; and status --is-interactive
+    set_color yellow; echo -n "...Landing on"; set_color normal
+    echo -E "     ___                       ___                       ___     
+                 /  /\                     /__/\          ___        /  /\    
+                /  /::\                    \  \:\        /  /\      /  /::\   
+               /  /:/\:\  ___     ___       \  \:\      /  /:/     /  /:/\:\  
+              /  /:/~/:/ /__/\   /  /\  ___  \  \:\    /  /:/     /  /:/  \:\ 
+             /__/:/ /:/  \  \:\ /  /:/ /__/\  \__\:\  /  /::\    /__/:/ \__\:\\
+             \  \:\/:/    \  \:\  /:/  \  \:\ /  /:/ /__/:/\:\   \  \:\ /  /:/
+              \  \::/      \  \:\/:/    \  \:\  /:/  \__\/  \:\   \  \:\  /:/ 
+               \  \:\       \  \::/      \  \:\/:/        \  \:\   \  \:\/:/  
+                \  \:\       \__\/        \  \::/          \__\/    \  \::/   
+                 \__\/                     \__\/                     \__\/
+    "
+end
+
 # homebrew at the very beginning
 eval "$(/opt/homebrew/bin/brew shellenv fish)"
 
@@ -28,7 +44,7 @@ end
 # Added by `rbenv init` on Thu Aug 22 10:15:29 CST 2024
 status --is-interactive; and rbenv init - --no-rehash fish | source
 
-if status is-interactive
+if status --is-interactive
     # Commands to run in interactive sessions can go here
     set -gx EDITOR hx
 
@@ -69,20 +85,5 @@ else
 end
 # <<< conda initialize <<<
 
-    if status is-login
-        echo -E "Wellcome to 
-              ___                       ___                       ___     
-             /  /\                     /__/\          ___        /  /\    
-            /  /::\                    \  \:\        /  /\      /  /::\   
-           /  /:/\:\  ___     ___       \  \:\      /  /:/     /  /:/\:\  
-          /  /:/~/:/ /__/\   /  /\  ___  \  \:\    /  /:/     /  /:/  \:\ 
-         /__/:/ /:/  \  \:\ /  /:/ /__/\  \__\:\  /  /::\    /__/:/ \__\:\\
-         \  \:\/:/    \  \:\  /:/  \  \:\ /  /:/ /__/:/\:\   \  \:\ /  /:/
-          \  \::/      \  \:\/:/    \  \:\  /:/  \__\/  \:\   \  \:\  /:/ 
-           \  \:\       \  \::/      \  \:\/:/        \  \:\   \  \:\/:/  
-            \  \:\       \__\/        \  \::/          \__\/    \  \::/   
-             \__\/                     \__\/                     \__\/
-        "
-    end
 end
 
